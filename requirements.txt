@@ -1,0 +1,20 @@
+# Everything AnyConvert needs. Install with:  pip install -r requirements.txt
+pillow>=10
+pillow-heif          # iPhone HEIC photos
+pymupdf              # PDF and ebook reading, page rendering
+pypdf
+python-docx
+openpyxl
+markdown
+reportlab            # text and markdown to PDF
+svglib               # SVG input
+pyyaml
+xmltodict
+tomli; python_version < "3.11"
+tomli-w
+pycdlib              # writes ISO images
+py7zr                # 7z fallback when 7-Zip is not installed
+fonttools
+brotli               # needed for woff2
+tkinterdnd2          # drag and drop
+pyinstaller          # only needed to build the exe

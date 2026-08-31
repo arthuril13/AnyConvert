@@ -1,0 +1,21 @@
+# build output - the exe goes on a GitHub Release, not in the repo
+build/
+dist/
+*.spec
+verify-report.txt
+
+# test scratch
+_selftest/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# editors / os
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
