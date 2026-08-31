@@ -28,6 +28,9 @@ except ImportError:
     HAS_DND = False
 
 APP_NAME = "AnyConvert"
+VERSION = "1.0.0"
+COPYRIGHT = "Copyright (C) 2026 Arthur Lubarsky"
+HOMEPAGE = "https://github.com/arthuril13/AnyConvert"
 EXTRACT = "extract files (folder)"
 
 # Shown at the top of the format list so the usual suspects are one click away.
@@ -126,6 +129,7 @@ class App:
         s.configure("TFrame", background=PANEL)
         s.configure("TLabel", background=PANEL, foreground=FG)
         s.configure("Muted.TLabel", foreground=MUTED)
+        s.configure("Link.TLabel", foreground=ACCENT)
         s.configure("Head.TLabel", font=("Segoe UI Semibold", 12))
         s.configure("Ok.TLabel", foreground=OK)
         s.configure("Bad.TLabel", foreground=BAD)
@@ -273,6 +277,17 @@ class App:
                    command=self.copy_commands).pack(side="left", padx=8)
         ttk.Button(row, text="What can it convert?",
                    command=self.show_formats).pack(side="left")
+
+        # AGPL asks that the program itself carry the notice, not just the repo
+        about = ttk.Frame(parent)
+        about.pack(side="bottom", fill="x", pady=(20, 0))
+        ttk.Label(about, style="Muted.TLabel", justify="left",
+                  text="%s %s   %s\nFree software under the GNU AGPL v3, with "
+                       "no warranty of any kind. Source code:"
+                       % (APP_NAME, VERSION, COPYRIGHT)).pack(anchor="w")
+        link = ttk.Label(about, text=HOMEPAGE, style="Link.TLabel", cursor="hand2")
+        link.pack(anchor="w")
+        link.bind("<Button-1>", lambda e: webbrowser.open(HOMEPAGE))
 
         self.refresh_tools()
 

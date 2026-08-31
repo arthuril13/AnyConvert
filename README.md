@@ -1,8 +1,24 @@
 # AnyConvert
 
-A Windows file converter. Drop files in, pick a format, hit Convert.
+Any file into any other file. Images, video, audio, documents, archives, fonts,
+even DMG to ISO. No upload sites, no watermarks, no "go Premium to continue" —
+one portable Windows app that runs entirely on your own machine.
 
-`dist\AnyConvert.exe` is the whole app — one file, no installer, copy it anywhere.
+Drop a file in, pick a format, done.
+
+## Download
+
+### [⬇ Download AnyConvert.exe](https://github.com/arthuril13/AnyConvert/releases/latest)
+
+One file, about 62 MB. No installer, no setup, no admin rights. Save it
+anywhere and double-click it.
+
+Windows may show a blue "Windows protected your PC" box the first time, because
+the app is not code-signed (a certificate costs a few hundred pounds a year).
+Click **More info** then **Run anyway**. If you would rather not trust a binary
+from a stranger, [build it yourself](#building-it-yourself) — it is one command.
+
+Nothing is ever uploaded. Your files never leave your computer.
 
 ---
 
@@ -125,25 +141,40 @@ result on Windows, not by reading the spec:
 
 ---
 
+## Source code
+
+Everything is here — there is no hidden part. You need Python 3.10 or newer.
+
+```bash
+git clone https://github.com/arthuril13/AnyConvert.git
+```
+
+```bash
+cd AnyConvert
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+Run it straight from source, no build step:
+
+```bash
+python app.py
+```
+
 ## Building it yourself
+
+To produce your own `AnyConvert.exe`:
 
 ```bash
 build.bat
 ```
 
 That installs the dependencies, draws the icon, runs the test suite, and only
-then builds `dist\AnyConvert.exe` (about 63 MB, since Python and every library
-are inside it).
-
-To run from source without building:
-
-```bash
-pip install -r requirements.txt
-```
-
-```bash
-python app.py
-```
+then builds `dist\AnyConvert.exe` (about 62 MB, since Python and every library
+are packed inside it). If any test fails it stops rather than shipping a
+broken build.
 
 ---
 
@@ -215,4 +246,12 @@ FFmpeg, 7-Zip, LibreOffice, Calibre and qemu-img are **not bundled** — the app
 looks for them on your machine and uses them if they are there. Nothing of
 theirs ends up in the exe, so their licences do not reach into this project.
 
-> Copyright (C) 2026 AnyConvert contributors — put your own name here.
+Copyright (C) 2026 Arthur Lubarsky
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version. It is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+for more details.
